@@ -1,0 +1,27 @@
+//UIUC CS125 FALL 2010 MP. File: RGBUtilities.java, CS125 Project: Challenge4-Photoscoop, Version: 2010-10-01T23:25:31-0500.935949000
+/* Manipulates RGB values
+ * 
+ * Todo: Put your netid (i.e. username) in the line below
+ * 
+ * @author saharia1
+ */
+
+public class RGBUtilities {
+
+	public static int toRed(int rgb) {
+		return (rgb>>16) & 0xff;
+	}
+
+	public static int toGreen(int rgb) {
+		return (rgb>>8) & 0xff;
+	}
+
+	public static int toBlue(int rgb) {
+		return rgb & 0xff;
+	}
+
+	static int toRGB(int r, int g, int b) {
+		return (r<<16 | g<<8 | b);
+	}
+
+}

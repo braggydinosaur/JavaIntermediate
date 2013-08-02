@@ -1,0 +1,115 @@
+
+public class PixelEffects {
+
+	public static int[][] copy(int[][] source) {
+		return resize(source,source.length, source[0].length);
+	}
+	/**
+	 * Resize the array image to the new width and height
+	 * You are going to need to figure out how to map between a pixel
+	 * in the destination image to a pixel in the source image
+	 * @param source
+	 * @param newWidth
+	 * @param newHeight
+	 * @return
+	 */
+	public static int[][] resize(int[][] source, int newWidth, int newHeight) {
+		int[][] array = new int[newWidth][newHeight];
+		return array; 
+	}
+
+	public static int[][] half(int[][] source) {
+		int[][] array = new int[source.length / 2][source[0].length / 2];
+		return array;
+	}
+	
+	public static int[][] resize(int[][] source, int[][] reference) {
+		return null;
+	}
+
+	/**
+	 *	Flips the image over the x-axis.
+	 */
+	public static int[][] flip(int[][] source) {
+		int[][] array=new int[source.length][source[0].length];
+		
+		// Your code here
+		
+		return array;
+	}
+
+	/**
+	 *	Mirrors the image over the y-axis.
+	 */
+	public static int[][] mirror(int[][] source) {
+		int[][] array=new int[source.length][source[0].length];
+		
+		// Your code here
+		
+		return array;
+	}
+
+	/**
+	 *	Rotates the image left.
+	 */
+	public static int[][] rotateLeft(int[][] source) {
+		return null;
+	}
+
+	/**
+	 *	Rotates the image right.
+	 */
+	public static int[][] rotate(int[][] source) {
+		return null;
+	}
+	
+	/** 
+	 * Merge the red,blue,green components from two images.
+	 */
+	public static int[][] merge(int[][] sourceA, int[][] sourceB) {
+		int[][] array=new int[sourceA.length][sourceA[0].length];
+		sourceB = resize(sourceB, sourceA);
+		
+		return array;
+	}
+
+	/**
+	 * Replace the green areas of the foreground image with parts of the back
+	 * image.
+	 */
+	public static int[][] chromaKey(int[][] foreImage, int[][] backImage) {
+		int[][] array= new int[foreImage.length][foreImage[0].length];
+		int[][] back = resize(backImage,foreImage);
+		
+		return array;
+	}
+
+	/** 
+	 *	Remove redeye. Note that sourceB is not used.
+	 */
+	public static int[][] redeye(int[][] source, int[][] sourceB) {
+		int width = source.length, height = source[0].length;
+		int[][] result = new int[width][height];
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
+				int rgb = source[i][j];
+				int red = RGBUtilities.toRed(rgb);
+				int green = RGBUtilities.toGreen(rgb);
+				int blue = RGBUtilities.toBlue(rgb);
+				if (red > 4 * Math.max(green, blue) && red > 64)
+					red = green = blue = 0;
+				result[i][j] = RGBUtilities.toRGB(red, green, blue);
+			}
+		}
+		return result;
+	}
+
+	/**
+	 *	Add some funk to the image.
+	 */
+	public static int[][] funky(int[][] source, int[][] sourceB) {
+		int[][] array=new int[source.length][source[0].length];
+		
+		return array;
+	}
+}
